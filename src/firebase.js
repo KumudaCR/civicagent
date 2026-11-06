@@ -12,7 +12,14 @@ const firebaseConfig = {
   appId: "1:950156041955:web:93ece094136c4538a02fd6"
 }
 
+// Initialize Firebase
 export const app = initializeApp(firebaseConfig)
+
+// Initialize Firebase services
 export const auth = getAuth(app)
 export const db = getFirestore(app)
-export const ai = getAI(app, { backend: new GoogleAIBackend() })
+
+// Initialize Firebase AI Logic
+export const ai = getAI(app, {
+  backend: new GoogleAIBackend()
+})

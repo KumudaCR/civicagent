@@ -118,11 +118,46 @@ function ReportIssue() {
         </button>
 
         {aiResult && (
-          <div className="ai-result">
-            <h3>AI Complaint Analysis</h3>
-            <pre>{JSON.stringify(aiResult, null, 2)}</pre>
-          </div>
-        )}
+  <div className="ai-analysis">
+    <h2>🤖 AI Complaint Analysis</h2>
+
+    <div className="analysis-grid">
+
+      <div className="analysis-card">
+        <span className="analysis-label">Department</span>
+        <h3>{aiResult.department}</h3>
+      </div>
+
+      <div className="analysis-card">
+        <span className="analysis-label">Priority</span>
+        <span className={`priority-badge ${aiResult.priority?.toLowerCase()}`}>
+          {aiResult.priority}
+        </span>
+      </div>
+
+      <div className="analysis-card">
+        <span className="analysis-label">Category</span>
+        <h3>{aiResult.category}</h3>
+      </div>
+
+      <div className="analysis-card">
+        <span className="analysis-label">Issue</span>
+        <p>{aiResult.issue}</p>
+      </div>
+
+      <div className="analysis-card">
+        <span className="analysis-label">Priority Reason</span>
+        <p>{aiResult.priorityReason}</p>
+      </div>
+
+      <div className="analysis-card action-card">
+        <span className="analysis-label">Suggested Action</span>
+        <p>{aiResult.suggestedAction}</p>
+      </div>
+
+    </div>
+  </div>
+)}
 
         <label>Upload an Image</label>
         <div className="upload-area">
